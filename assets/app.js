@@ -278,7 +278,7 @@ async function init() {
   const response = await fetch(manifestPath);
   state.manifest = await response.json();
 
-  elements.lastUpdated.textContent = `更新日: ${state.manifest.updated}`;
+  elements.lastUpdated.textContent = `更新日: ${formatMonth(state.manifest.updated)}`;
 
   const files = state.manifest.files ?? [];
   files.forEach((file) => {
