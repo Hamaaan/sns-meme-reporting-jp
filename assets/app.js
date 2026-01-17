@@ -27,6 +27,13 @@ function escapeHTML(value) {
     .replaceAll("'", "&#39;");
 }
 
+function formatMonth(value) {
+  if (!value) {
+    return "";
+  }
+  return value.slice(0, 7);
+}
+
 function splitTags(value) {
   return value
     .split(",")
@@ -216,7 +223,7 @@ function renderCards(records) {
     const card = document.createElement("article");
     card.className = "card";
     card.innerHTML = `
-      <div class="date">${escapeHTML(record.date)}</div>
+      <div class="date">${escapeHTML(formatMonth(record.date))}</div>
       <h3>${escapeHTML(record.name)}</h3>
       <div class="tag-row">
         ${record.platforms
@@ -235,7 +242,7 @@ function renderCards(records) {
     elements.cardList.appendChild(card);
   });
 
-  elements.recordCount.textContent = `Records: ${records.length}`;
+  elements.recordCount.textContent = `件数: ${records.length}`;
 }
 
 function updateFilters() {
@@ -271,7 +278,7 @@ async function init() {
   const response = await fetch(manifestPath);
   state.manifest = await response.json();
 
-  elements.lastUpdated.textContent = `Updated: ${state.manifest.updated}`;
+  elements.lastUpdated.textContent = `更新日: ${state.manifest.updated}`;
 
   const files = state.manifest.files ?? [];
   files.forEach((file) => {
