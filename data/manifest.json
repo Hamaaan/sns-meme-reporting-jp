@@ -1,6 +1,6 @@
 {
-  "updated": "2026-09-30",
-  "defaultMonth": "2026-09",
+  "updated": "2026-10-01",
+  "defaultMonth": "2026-10",
   "files": [
     {
       "month": "2026-01",
@@ -37,6 +37,10 @@
     {
       "month": "2026-09",
       "path": "data/2026/2026-09_meme_trends.csv"
+    },
+    {
+      "month": "2026-10",
+      "path": "data/2026/2026-10_meme_trends.csv"
     }
   ]
 }
